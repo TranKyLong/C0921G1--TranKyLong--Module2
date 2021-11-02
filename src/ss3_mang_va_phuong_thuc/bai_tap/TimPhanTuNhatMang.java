@@ -2,7 +2,7 @@ package ss3_mang_va_phuong_thuc.bai_tap;
 
 import java.util.Scanner;
 
-public class TimGiaTriLonNhatMang {
+public class TimPhanTuNhatMang {
     public static void main(String[] args) {
         Scanner myInput = new Scanner(System.in);
         System.out.println(" Mời nhập số hàng của mảng");
@@ -30,6 +30,6 @@ public class TimGiaTriLonNhatMang {
             }
         }
         System.out.println(" Phần tử lớn nhất mảng là: " + max);
-        System.out.println(" có tọa độ ở hàng " + maxRow + "và cột " + maxCol);
+        System.out.println(" có tọa độ ở hàng " + maxRow + " và cột " + maxCol);
     }
 }

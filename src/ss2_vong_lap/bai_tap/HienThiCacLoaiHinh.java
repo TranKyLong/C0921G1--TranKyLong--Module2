@@ -36,7 +36,7 @@ public class HienThiCacLoaiHinh {
 
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
+                    case 1: //góc vuông ở trái dưới
                         for (int i = 0; i < high; i++) {
                             for (int x = 0; x < i; x++) {
                                 System.out.print("* ");
@@ -44,7 +44,7 @@ public class HienThiCacLoaiHinh {
                             System.out.println("");
                         }
                         break;
-                    case 2:
+                    case 2: //Góc vuông ở bên trái phía trên
                         for (int i = 0; i < high; i++) {
                             for (int x = 0; x < (high - i); x++) {
                                 System.out.print("* ");

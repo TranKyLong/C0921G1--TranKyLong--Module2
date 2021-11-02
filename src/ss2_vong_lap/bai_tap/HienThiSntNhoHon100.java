@@ -10,7 +10,6 @@ public class HienThiSntNhoHon100{
         }
 
     }
-
     public static boolean kiemtrasnt(int n) {
         for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
