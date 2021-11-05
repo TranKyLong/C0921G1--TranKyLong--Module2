@@ -30,6 +30,7 @@ public class ClassCircle {
     }
 
     public String toString() {
-        return " Hình tròn \n Bán kính: " + radius + "\n Màu sắc: " + color + "\n Diện tích: " + getArea();
+        return " Hình tròn có \n Bán kính: " + radius + "\n Màu sắc: " + color + "\n Diện tích: " + getArea();
     }
 }
+
