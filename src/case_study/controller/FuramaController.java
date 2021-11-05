@@ -29,7 +29,7 @@ public class FuramaController {
             }
             option = choice.nextInt();
             if (option < 1 || option > 6) {
-                count--;
+                count=-1;
                 displayMenu();
             }
             count = 0;
@@ -108,6 +108,7 @@ public class FuramaController {
                         break;
                 }
             } while (optionFunction1 != 4);
+            count = 0;
             displayMenu();
         }
 
@@ -164,6 +165,7 @@ public class FuramaController {
                         break;
                 }
             } while (optionFunction2 != 4);
+            count = 0;
             displayMenu();
         }
 
@@ -219,6 +221,7 @@ public class FuramaController {
                         break;
                 }
             } while (optionFunction3 != 4);
+            count = 0;
             displayMenu();
         }
 
@@ -293,6 +296,7 @@ public class FuramaController {
                         break;
                 }
             } while (optionFunction4 != 6);
+            count = 0;
             displayMenu();
         }
 
@@ -338,6 +342,7 @@ public class FuramaController {
                         break;
                 }
             } while (optionFunction5 != 3);
+            count = 0;
             displayMenu();
 
         }
