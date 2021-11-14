@@ -1,6 +1,6 @@
 package ss7_abstract_class_interface.bai_tap.resizeable;
 
-public class Square extends Shape implements Resizeable {
+public class Square extends Shape implements Colorable {
     double edge = 1;
 
     public Square() {

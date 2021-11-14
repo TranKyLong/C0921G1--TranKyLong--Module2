@@ -1,13 +1,10 @@
-package ss7_abstract_class_interface.bai_tap.resizeable;
+package ss7_abstract_class_interface.bai_tap.Colorable;
 
-public class Circle extends Shape implements Colorable {
+
+public class Circle extends Shape  {
     private double radius = 1.0;
 
     public Circle() {
-    }
-
-    public Circle(double radius) {
-        this.radius = radius;
     }
 
     public Circle(double radius, String color, boolean filled) {
@@ -30,18 +27,17 @@ public class Circle extends Shape implements Colorable {
     public double getPerimeter() {
         return 2 * radius * Math.PI;
     }
-    @Override
-    public double resizeable(double percent) {
-        return getArea() * percent/100;
-    }
+
     @Override
     public String toString() {
         return "A Circle with radius="
                 + getRadius()
                 + ", which is a subclass of "
-                + "has an area of"
+                + "has an area of "
                 + getArea()
                 + super.toString()
         ;
     }
+
+
 }

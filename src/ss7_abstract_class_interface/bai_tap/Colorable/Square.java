@@ -1,13 +1,14 @@
 package ss7_abstract_class_interface.bai_tap.Colorable;
 
-public class Square implements Colorable {
-    private double edge = 1.0;
-
+public class Square extends Shape implements Colorable {
+    double edge = 1;
 
     public Square() {
     }
 
-    public Square(double edge) {
+
+    public Square(double edge, String color, boolean filled) {
+        super(color, filled);
         this.edge = edge;
     }
 
@@ -15,15 +16,9 @@ public class Square implements Colorable {
         return edge;
     }
 
-    public void setEdge(double edge) {
-        this.edge = edge;
+    public void setEdge(double radius) {
+        this.edge = radius;
     }
-
-
-    public Square(double edge, String color, boolean filled) {
-        this.edge = edge;
-    }
-
 
     public double getArea() {
         return edge * edge;
@@ -36,15 +31,16 @@ public class Square implements Colorable {
 
     @Override
     public String toString() {
-        return "A Square with edge="
+        return "A Square with edge= "
                 + getEdge()
-                + "whit area "
-                + getArea();
-
+                + ", has an area of "
+                + getArea()
+                + ", which is a subclass of "
+                + super.toString();
     }
 
     @Override
-    public void howToColor() {
-        System.out.println("Color all four sides");
+    public String howToColor() {
+        return "color all 4 side ";
     }
 }

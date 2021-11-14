@@ -1,4 +1,4 @@
-package case_study.controller;
+package case_study.Services;
 
 import java.util.Scanner;
 

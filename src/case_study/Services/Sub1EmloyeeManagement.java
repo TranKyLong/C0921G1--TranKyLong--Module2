@@ -1,18 +1,20 @@
-package case_study.controller;
+package case_study.Services;
 
 import java.util.Scanner;
 
-public class Sub3FacilityManagement {
+public class Sub1EmloyeeManagement {
     static boolean check = true;
 
-static void facilityManagement() {
-        int optionFunction3;
+    static void employeeManagement() {
+
+        int optionFunction1;
+
         do {
             Scanner choice = new Scanner(System.in);
-            System.out.println("+----------FACILITY MANAGEMENT----------+");
-            System.out.println("|        1.  Display list facility      |");
-            System.out.println("|        2.  Add new facility           |");
-            System.out.println("|        3.  Edit facility maintenance  |");
+            System.out.println("+----------EMPLOYEE MANAGEMENT----------+");
+            System.out.println("|        1.  Display list employees     |");
+            System.out.println("|        2.  Add new employee           |");
+            System.out.println("|        3.  Edit employee              |");
             System.out.println("|        4.  Return main menu           |");
             System.out.println("+---------------------------------------+");
             if (check) {
@@ -20,47 +22,47 @@ static void facilityManagement() {
 
             } else {
                 System.out.println("THE NUMBER YOU ENTER IS NOT VALID, PLEASE RE-ENTER A NUMBER");
-            }
-            optionFunction3 = choice.nextInt();
 
-            if (optionFunction3 < 1 || optionFunction3 > 4) {
+            }
+            optionFunction1 = choice.nextInt();
+
+            if (optionFunction1 < 1 || optionFunction1 > 4) {
                 check = false;
-                facilityManagement();
-
+                employeeManagement();
             }
-            switch (optionFunction3) {
+            switch (optionFunction1) {
                 case 1:
                     System.out.println("+---------------------------------------+");
                     System.out.println("|                 ACTION 1              |");
                     System.out.println("|               IS COMPLETED            |");
                     System.out.println("+---------------------------------------+");
-                    System.out.println("PRESS ANY KEY TO RETURN FACILITY MANAGEMENT");
+                    System.out.println("PRESS ANY KEY TO RETURN EMPLOYEE MANAGEMENT");
                     choice.next();
                     check = true;
-                    facilityManagement();
+                    employeeManagement();
                     break;
                 case 2:
                     System.out.println("+---------------------------------------+");
                     System.out.println("|                 ACTION 2              |");
                     System.out.println("|               IS COMPLETED            |");
                     System.out.println("+---------------------------------------+");
-                    System.out.println("PRESS ANY KEY TO RETURN FACILITY MANAGEMENT");
+                    System.out.println("PRESS ANY KEY TO RETURN EMPLOYEE MANAGEMENT");
                     choice.next();
                     check = true;
-                    facilityManagement();
+                    employeeManagement();
                     break;
                 case 3:
                     System.out.println("+---------------------------------------+");
                     System.out.println("|                 ACTION 3              |");
                     System.out.println("|               IS COMPLETED            |");
                     System.out.println("+---------------------------------------+");
-                    System.out.println("PRESS ANY KEY TO RETURN FACILITY MANAGEMENT");
+                    System.out.println("PRESS ANY KEY TO RETURN EMPLOYEE MANAGEMENT");
                     choice.next();
                     check = true;
-                    facilityManagement();
+                    employeeManagement();
                     break;
             }
-        } while (optionFunction3 != 4);
+        } while (optionFunction1 != 4);
         check = true;
         Sub0DisplayMenu.displayMenu();
     }

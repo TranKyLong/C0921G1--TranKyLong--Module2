@@ -1,6 +1,8 @@
-package ss7_abstract_class_interface.bai_tap.resizeable;
+package ss7_abstract_class_interface.bai_tap.Colorable;
 
-public class Rectangle extends Shape implements Colorable {
+import ss7_abstract_class_interface.bai_tap.resizeable.Colorable;
+
+public class Rectangle extends Shape {
 
     public double width = 1.0;
      public double length = 1.0;
@@ -55,8 +57,5 @@ public class Rectangle extends Shape implements Colorable {
                 + super.toString();
     }
 
-    @Override
-    public double resizeable(double percent) {
-        return getArea() * percent/100;
-    }
+
 }
