@@ -45,24 +45,24 @@ public class VehicleMethod extends AbstractPhuongTien {
                 MainMenu.displayMenu();
             }
             for (XeOto i : XeOtoListAndMethod.getOtoList()) {
-                if (i.bienKiemSoat.equals(bienSo)) {
-                    bienSo = i.bienKiemSoat;
+                if (i.getBienKiemSoat().equals(bienSo)) {
+                    bienSo = i.getBienKiemSoat();
                     xacNhan(bienSo);
                 } else {
                     flag = false;
                 }
             }
             for (XeMay i : XeMayListAndMethod.getXeMayList()) {
-                if (i.bienKiemSoat.equals(bienSo)) {
-                    bienSo = i.bienKiemSoat;
+                if (i.getBienKiemSoat().equals(bienSo)) {
+                    bienSo = i.getBienKiemSoat();
                     xacNhan(bienSo);
                 } else {
                     flag = false;
                 }
             }
             for (XeTai i : XeTaiListAndMethod.getXeTaiList()) {
-                if (i.bienKiemSoat.equals(bienSo)) {
-                    bienSo = i.bienKiemSoat;
+                if (i.getBienKiemSoat().equals(bienSo)) {
+                    bienSo = i.getBienKiemSoat();
                     xacNhan(bienSo);
                 } else {
                     flag = false;
@@ -90,9 +90,9 @@ public class VehicleMethod extends AbstractPhuongTien {
 
     }
     static void xoaXe(String bienSo) {
-        XeOtoListAndMethod.getOtoList().removeIf(i -> i.bienKiemSoat.equals(bienSo));
-        XeTaiListAndMethod.getXeTaiList().removeIf(i -> i.bienKiemSoat.equals(bienSo));
-        XeMayListAndMethod.getXeMayList().removeIf(i -> i.bienKiemSoat.equals(bienSo));
+        XeOtoListAndMethod.getOtoList().removeIf(i -> i.getBienKiemSoat().equals(bienSo));
+        XeTaiListAndMethod.getXeTaiList().removeIf(i -> i.getBienKiemSoat().equals(bienSo));
+        XeMayListAndMethod.getXeMayList().removeIf(i -> i.getBienKiemSoat().equals(bienSo));
 
         System.out.println("Xóa thành công ! Ấn phím bất kỳ để trở về menu xóa phương tiện");
         scanner.nextLine(); //chống trôi lệnh trong Java

@@ -22,10 +22,10 @@ public class XeMayListAndMethod extends VehicleMethod {
         System.out.println("DANH SÁCH XE MÁY");
         for (XeMay i : xeMayList) {
             System.out.format("Biển số: %-15s Tên Hãng: %-10s Năm sản xuất: %-15s Tên chủ xe: %-15s Công suất: %-5s \n",
-                    i.bienKiemSoat,
-                    i.hangSanXuat,
-                    i.namSanXuat,
-                    i.chuSoHuu,
+                    i.getBienKiemSoat(),
+                    i.getHangSanXuat(),
+                    i.getNamSanXuat(),
+                    i.getChuSoHuu(),
                     i.congSuat
             );
         }

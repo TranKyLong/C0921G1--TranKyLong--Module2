@@ -1,10 +1,10 @@
 package bai_tap_lam_them.Class;
 
 public abstract class AbstractPhuongTien {
-    public String bienKiemSoat;
-    public String hangSanXuat;
-    public int namSanXuat;
-    public String chuSoHuu;
+     String bienKiemSoat;
+     String hangSanXuat;
+     int namSanXuat;
+     String chuSoHuu;
 
     public AbstractPhuongTien() {
     }

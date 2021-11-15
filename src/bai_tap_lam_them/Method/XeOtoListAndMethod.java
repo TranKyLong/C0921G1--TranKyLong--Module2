@@ -23,10 +23,10 @@ public class XeOtoListAndMethod extends VehicleMethod {
         System.out.println("DANH SÁCH XE Ô TÔ");
         for (XeOto i : otoList) {
             System.out.format("Biển số: %-15s Tên Hãng: %-10s Năm sản xuất: %-15s Tên chủ xe: %-15s Số chỗ ngồi: %-5s Loại xe: %-10s \n",
-                    i.bienKiemSoat,
-                    i.hangSanXuat,
-                    i.namSanXuat,
-                    i.chuSoHuu,
+                    i.getBienKiemSoat(),
+                    i.getHangSanXuat(),
+                    i.getNamSanXuat(),
+                    i.getChuSoHuu(),
                     i.choNgoi,
                     i.kieuXe
             );
