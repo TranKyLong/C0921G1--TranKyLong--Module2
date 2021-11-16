@@ -6,16 +6,14 @@ import java.util.*;
 
 public class TimChuoiTangDan {
     public static void main(String[] args) {
-        // Phương thức toCharArray() được sử dụng để chuyển đổi chuỗi thành các mảng ký tự.
-        //  Nó trả về một mảng ký từ có độ dài tương đương độ dài của chuỗi.
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Nhập chuỗi cần sắp xếp");
         String input = scanner.nextLine();
-//        String input = "Welcome";
+
         char[] kyTu = input.toCharArray();
         // Arrays.sort(kyTu);
-        // System.out.println(kyTu);
 
         List<Character> charlist = new ArrayList<>();
         List<Character> subString = new ArrayList<>();
@@ -37,8 +35,11 @@ public class TimChuoiTangDan {
                 charlist.remove(charlist.get(0));
             }
         }
-        for (int i = 0; i < subString.size(); i++) {
-            System.out.println(subString.get(i));
+        StringBuilder sb = new StringBuilder();
+        for (Character ch : subString) {
+            sb.append(ch);
         }
+        String string = sb.toString();
+        System.out.println(string);
     }
 }
