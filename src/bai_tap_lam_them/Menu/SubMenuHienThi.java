@@ -22,7 +22,6 @@ public class SubMenuHienThi  {
         System.out.println("  2.  Hiển thị Xe Ô tô");
         System.out.println("  3.  Hiển thị Xe Máy");
         System.out.println("  4.  Trở về menu chính");
-
         System.out.println("Nhập số tương ứng với loại phương tiện muốn hiển thị");
 
         try {

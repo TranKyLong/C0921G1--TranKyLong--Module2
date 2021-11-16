@@ -5,7 +5,7 @@ import ss12_java_collection.quan_ly_san_pham.models.SodaList;
 
 import java.util.Scanner;
 
-public class SodaCRUD extends SodaList {
+public class SodaAdder extends SodaList {
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -24,6 +24,4 @@ public class SodaCRUD extends SodaList {
 
         SodaList.sodaList.add(new SodaClass(sodaId, sodaName, sodaPrice, sodaHanSuDung));
     }
-
-
 }

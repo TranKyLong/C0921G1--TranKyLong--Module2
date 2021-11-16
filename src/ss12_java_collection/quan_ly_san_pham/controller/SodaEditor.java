@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class SodaEditor {
     static Scanner scanner = new Scanner(System.in);
 
-    public static void editSoda() {
+    static void editSoda() {
 
         System.out.println("Nhập ID sản phẩm cần sửa ");
 
@@ -18,13 +18,10 @@ public class SodaEditor {
         ) {
             if (input == i.getId()) {
                 checkID(i);
-
             }
         }
-
     }
-
-    public static void checkID(SodaClass i) {
+    private static void checkID(SodaClass i) {
         System.out.println(" CHỌN SỐ TƯƠNG ỨNG VỚI LOẠI THÔNG TIN CẦN SỬA : ");
         System.out.println(" Thông tin hiện tại là : ");
         System.out.println("1. ID: " + i.getId());
