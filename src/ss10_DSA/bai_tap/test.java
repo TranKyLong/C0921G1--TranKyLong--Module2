@@ -1,4 +1,4 @@
-package ss9_DSA.bai_tap;
+package ss10_DSA.bai_tap;
 
 public class test {
     static class Laptop {

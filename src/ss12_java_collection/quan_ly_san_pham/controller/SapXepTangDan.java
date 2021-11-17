@@ -1,6 +1,5 @@
 package ss12_java_collection.quan_ly_san_pham.controller;
 
-import ss10_dsa_stack_queue.bai_tap.ToChucDuLieuHopLy.Person;
 import ss12_java_collection.quan_ly_san_pham.models.SodaClass;
 import ss12_java_collection.quan_ly_san_pham.models.SodaList;
 

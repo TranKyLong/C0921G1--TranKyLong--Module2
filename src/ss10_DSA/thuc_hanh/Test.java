@@ -1,4 +1,4 @@
-package ss9_DSA.thuc_hanh;
+package ss10_DSA.thuc_hanh;
 
 public class Test {
     public static void main(String[] args) {

@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 
 public class VehicleMethod extends AbstractPhuongTien {
-    protected static String bienKiemSoat;
+    protected static String bienKiemSoat ;
     protected static String hangSanXuat;
-    protected static int namSanXuat;
+    protected static int namSanXuat ;
     protected static String chuSoHuu;
 
     protected static Scanner scanner = new Scanner(System.in);

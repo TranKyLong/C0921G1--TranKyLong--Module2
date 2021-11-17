@@ -1,4 +1,4 @@
-package ss13_thuat_toan_tim_kiem;
+package ss13_thuat_toan_tim_kiem.bai_tap;
 
 import sun.text.normalizer.UCharacter;
 
@@ -25,6 +25,7 @@ public class TimChuoiTangDan {
         int min;
 
         for (int i = 0; i < charlist.size(); i++) {
+
             min = (int) (charlist.get(0));
             if ((int) charlist.get(i) < min) {
                 min = (int) charlist.get(i);
@@ -35,6 +36,7 @@ public class TimChuoiTangDan {
                 charlist.remove(charlist.get(0));
             }
         }
+
         StringBuilder sb = new StringBuilder();
         for (Character ch : subString) {
             sb.append(ch);
