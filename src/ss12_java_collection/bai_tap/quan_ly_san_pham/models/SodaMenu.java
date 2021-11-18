@@ -1,4 +1,4 @@
-package ss12_java_collection.quan_ly_san_pham.models;
+package ss12_java_collection.bai_tap.quan_ly_san_pham.models;
 
 public class SodaMenu {
     private int menuOption;

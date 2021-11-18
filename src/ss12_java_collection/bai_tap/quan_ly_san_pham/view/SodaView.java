@@ -1,6 +1,6 @@
-package ss12_java_collection.quan_ly_san_pham.view;
+package ss12_java_collection.bai_tap.quan_ly_san_pham.view;
 
-import ss12_java_collection.quan_ly_san_pham.models.SodaMenu;
+import ss12_java_collection.bai_tap.quan_ly_san_pham.models.SodaMenu;
 
 import java.util.Scanner;
 

@@ -1,5 +1,5 @@
-package ss12_java_collection.quan_ly_san_pham.controller;
-import ss12_java_collection.quan_ly_san_pham.models.SodaClass;
+package ss12_java_collection.bai_tap.quan_ly_san_pham.controller;
+import ss12_java_collection.bai_tap.quan_ly_san_pham.models.SodaClass;
 import java.util.LinkedList;
 public class SodaDisplayer {
     public static void displaySodaList(LinkedList<SodaClass> array) {

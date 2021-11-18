@@ -1,12 +1,8 @@
-package ss12_java_collection.quan_ly_san_pham.controller;
-
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
-import ss12_java_collection.quan_ly_san_pham.models.SodaClass;
-import ss12_java_collection.quan_ly_san_pham.models.SodaList;
+package ss12_java_collection.bai_tap.quan_ly_san_pham.controller;
 
 import java.util.Scanner;
 
-import static ss12_java_collection.quan_ly_san_pham.models.SodaList.getSodaList;
+import static ss12_java_collection.bai_tap.quan_ly_san_pham.models.SodaList.getSodaList;
 
 public class SodaDeleter {
     public static void deleteSoda() {

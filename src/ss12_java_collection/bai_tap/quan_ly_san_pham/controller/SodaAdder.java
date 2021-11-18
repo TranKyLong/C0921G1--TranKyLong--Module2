@@ -1,7 +1,7 @@
-package ss12_java_collection.quan_ly_san_pham.controller;
+package ss12_java_collection.bai_tap.quan_ly_san_pham.controller;
 
-import ss12_java_collection.quan_ly_san_pham.models.SodaClass;
-import ss12_java_collection.quan_ly_san_pham.models.SodaList;
+import ss12_java_collection.bai_tap.quan_ly_san_pham.models.SodaClass;
+import ss12_java_collection.bai_tap.quan_ly_san_pham.models.SodaList;
 
 import java.util.Scanner;
 

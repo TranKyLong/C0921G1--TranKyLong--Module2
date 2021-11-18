@@ -12,7 +12,10 @@ public class MinhHoaSapXepChen {
             int temp = numArray[i];
             int position = i - 1;
             while (position >= 0 && temp <= numArray[position]) {
+                System.out.println("chèn " +   numArray[position] + " vào vị trí của " +numArray[position + 1] );
+
                 numArray[position + 1] = numArray[position];
+
                 position = position - 1;
 
             }
