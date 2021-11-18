@@ -5,7 +5,6 @@ import ss12_java_collection.bai_tap.quan_ly_san_pham.models.SodaList;
 
 import java.util.Comparator;
 
-import static ss12_java_collection.bai_tap.quan_ly_san_pham.controller.SodaDisplayer.displaySodaList;
 
 public class SapXepGiamDan implements Comparator<SodaClass> {
     @Override
@@ -15,6 +14,6 @@ public class SapXepGiamDan implements Comparator<SodaClass> {
 
     public static void sapXepGiam () {
         SodaList.getSodaList().sort(new SapXepGiamDan());
-        displaySodaList(SodaList.getSodaList());
+      SodaList.getSodaList();
     }
 }
