@@ -12,7 +12,7 @@ public class SuDungLopIllegalTriangleException {
         for (int i = 0; i < triangleSide.length; i++) {
             while (true) {
                 try {
-                    System.out.println("Nhập chiều dài cạnh bằng một số lớn hơn 0" + (i + 1));
+                    System.out.println("Nhập chiều dài cạnh "  +(i + 1) + " bằng một số lớn hơn 0");
                     triangleSide[i] = Integer.parseInt(scanner.nextLine());
                     break;
                 } catch (Exception e) {
