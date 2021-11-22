@@ -5,7 +5,8 @@ import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import java.util.Scanner;
 
 public class IllegalTriangleException {
-    public static void main(String[] args) throws NegativeSideException, InappropriateLengthException {
+
+    public static void main(String[] args) {
         System.out.println("Nhập độ dài tam giác");
         Scanner scanner = new Scanner(System.in);
         int side1;
@@ -26,10 +27,12 @@ public class IllegalTriangleException {
                 scanner.nextLine();
             }
         }
-            try {
-                Triangle triangle = new Triangle(side1, side2, side3);
-            } catch (InappropriateLengthException | NegativeSideException e) {
-                scanner.nextLine();
-            }
+
+        try {
+            Triangle triangle = new Triangle(side1, side2, side3);
+        } catch (NegativeSideException | InappropriateLengthException e) {
+            e.printStackTrace();
+        }
+
     }
 }

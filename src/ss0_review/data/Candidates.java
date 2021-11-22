@@ -2,7 +2,7 @@ package ss0_review.data;
 
 import java.time.LocalDate;
 
-public class Candidates {
+public abstract class Candidates implements Comparable<Candidates>{
     private String id;
     private String firstName;
     private String lastName;
@@ -107,5 +107,10 @@ public class Candidates {
                 ", email='" + email + '\'' +
                 ", type='" + type + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Candidates candidates) {
+        return this.getId().compareTo(candidates.getId());
     }
 }

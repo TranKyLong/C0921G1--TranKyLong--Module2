@@ -17,8 +17,6 @@ public class TextCopier {
                             "(•ㅅ•) || \n" +
                             "/ 　 づ "));
             while ((i = fileReader.read()) != -1) {
-
-
                 result += (char) i;
 
             }
@@ -49,7 +47,7 @@ public class TextCopier {
         }
     }
 
-    static final String SOURCE = "D:\\CodeGym\\1_main_excercise\\module_2\\src\\ss16_io_text_file\\bai_tap\\copy_file_text\\Source";
+    static final String SOURCE = "D:\\CodeGym\\1_main_excercise\\module_2\\src\\ss16_io_text_file\\bai_tap\\copy_file_text\\source";
     static final String TARGET = "D:\\CodeGym\\1_main_excercise\\module_2\\src\\ss16_io_text_file\\bai_tap\\copy_file_text\\TargetText";
 
     public static void main(String[] args) {
@@ -66,10 +64,6 @@ public class TextCopier {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
-
-
 }
 

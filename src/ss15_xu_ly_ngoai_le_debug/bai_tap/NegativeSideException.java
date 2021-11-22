@@ -1,8 +1,10 @@
 package ss15_xu_ly_ngoai_le_debug.bai_tap;
 
-public class NegativeSideException extends Throwable {
+public class NegativeSideException extends Exception {
     public NegativeSideException( ) {
-        System.err.println( "Cạnh không thể <=0");
     }
-
+    @Override
+    public String getMessage(){
+        return  "Cạnh không thể <= 0";
+    }
 }
