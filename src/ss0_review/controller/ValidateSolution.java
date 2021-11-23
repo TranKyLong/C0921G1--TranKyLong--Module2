@@ -60,6 +60,16 @@ public class ValidateSolution {
         }
         return phoneInput;
     }
+    static int demKyTu(String str) {
+        int result = 0;
+        String[] myChar = str.split("");
+        for (String i : myChar) {
+            if ("@".equals(i)) {
+                result++;
+            }
+        }
+        return result;
+    }
 
     static String inputMail() {
         while (true) {
@@ -70,7 +80,7 @@ public class ValidateSolution {
                     throw new MalformedException();
                 }
                 break;
-            } catch (Exception e) {
+            } catch (MalformedException e) {
                 System.err.println("Vui lòng nhập đúng format");
             }
         }

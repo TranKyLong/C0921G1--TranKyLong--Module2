@@ -5,16 +5,12 @@ import ss0_review.data.Experience;
 import ss0_review.data.Fresher;
 import ss0_review.data.Intership;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 import static ss0_review.controller.ValidateSolution.*;
 
-public class CandidateController implements MethodInterface {
+public class CandidateController {
     public static Scanner scanner = new Scanner(System.in);
     public static String idInput;
     public static String firstNameInput;
@@ -53,18 +49,17 @@ public class CandidateController implements MethodInterface {
                     break;
                 case 4:
                     findCandidate();
+
                     break;
                 case 5:
                     writeToCSV();
                     System.out.println("Cập nhật thành công");
                     break;
                 case 6:
-                    inputEditID();
-                   deleteCandidates(inputEditID());
+                    deleteCandidates(inputEditID());
                     break;
 
                 case 7:
-                    inputEditID();
                     editCandidates(inputEditID());
                     break;
                 case 8:
@@ -88,24 +83,11 @@ public class CandidateController implements MethodInterface {
     }
 
 
-    static int demKyTu(String str) {
-        int result = 0;
-        String[] myChar = str.split("");
-        for (String i : myChar) {
-            if ("@".equals(i)) {
-                result++;
-            }
-        }
-        return result;
-    }
-
     public static void creatCandidate() {
         inputID();
         inputBirth();
         inputPhoneNumber();
         inputMail();
-        inputType();
-
         System.out.println("Nhập tên ");
         firstNameInput = scanner.nextLine();
 
@@ -118,28 +100,35 @@ public class CandidateController implements MethodInterface {
 
     public static void displayAll() {
         System.out.println("===========EXPERIENCE CANDIDATE============");
-        for (Candidates i : candidatesList) {
-            if (i instanceof Experience) {
-                System.out.println(i.getFirstName() + "" + i.getLastName());
-            }
-        }
+        showAll(new File(EXP_FILE));
         System.out.println("\n==========FRESHER CANDIDATE==============");
-        for (Candidates i : candidatesList) {
-            if (i instanceof Fresher) {
-                System.out.println(i.getFirstName() + "" + i.getLastName());
-            }
-        }
+        showAll(new File(FRESHER_FILE));
         System.out.println("\n===========INTERN CANDIDATE==============");
-        for (Candidates i : candidatesList) {
-            if (i instanceof Intership) {
-                System.out.println(i.getFirstName() + "" + i.getLastName());
-            }
-        }
-        choiceMenu();
+        showAll(new File(INTERSHIP_FILE));
+
     }
+
+    public static void showAll(File file) {
+        //parsing a CSV file into Scanner class constructor
+        Scanner sc = null;
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        assert sc != null;
+        sc.useDelimiter(", "); //sets the delimiter pattern
+        while (sc.hasNext())  //returns a boolean value
+        {
+            System.out.println(sc.nextLine() );  //find and returns the next complete token from this scanner
+        }
+        sc.close();  //closes the scanner
+    }
+
 
     public static void findCandidate() {
         displayAll();
+
         System.out.print("Nhập ký tự có trong tên cần tìm kiếm:  ");
         String searchName = scanner.nextLine();
         inputType();
@@ -151,8 +140,9 @@ public class CandidateController implements MethodInterface {
             }
         }
         if (isFound < 0) {
-            System.out.println("không tìm thấy");
+            System.err.println("không tìm thấy");
         }
+        choiceMenu();
     }
 
     public static List<Candidates> candidatesList = new ArrayList<>();
@@ -192,7 +182,7 @@ public class CandidateController implements MethodInterface {
         System.out.println("Kỹ năng chuyên môn");
         String proSkill = scanner.nextLine();
 
-        candidatesList.add(new Experience(idInput, firstNameInput, lastNameInput, birthInput, addressInput, phoneInput, emailInput, typeInput, inputExpInYear(), proSkill));
+        candidatesList.add(new Experience(idInput, firstNameInput, lastNameInput, birthInput, addressInput, phoneInput, emailInput, 0, inputExpInYear(), proSkill));
 
         if (option() == 1) {
             creatExperience();
@@ -221,7 +211,7 @@ public class CandidateController implements MethodInterface {
 
         System.out.println("Năm tốt nghiệp ");
         String graduateDate = scanner.nextLine();
-        candidatesList.add(new Fresher(idInput, firstNameInput, lastNameInput, birthInput, addressInput, phoneInput, emailInput, typeInput, graduateDate, graduationRank, educate));
+        candidatesList.add(new Fresher(idInput, firstNameInput, lastNameInput, birthInput, addressInput, phoneInput, emailInput, 1, graduateDate, graduationRank, educate));
 
         if (option() == 1) {
             creatFresher();
@@ -246,7 +236,7 @@ public class CandidateController implements MethodInterface {
         System.out.println("Nhập tên trường đại học");
         String uniName = scanner.nextLine();
 
-        candidatesList.add(new Intership(idInput, firstNameInput, lastNameInput, birthInput, addressInput, phoneInput, emailInput, typeInput, major, hocKy, uniName));
+        candidatesList.add(new Intership(idInput, firstNameInput, lastNameInput, birthInput, addressInput, phoneInput, emailInput, 2, major, hocKy, uniName));
 
         if (option() == 1) {
             creatIntership();
@@ -284,6 +274,8 @@ public class CandidateController implements MethodInterface {
         }
         if (found < 0) {
             System.err.println("Không tìm thấy");
+
+
             choiceMenu();
         }
         return x;
@@ -296,6 +288,7 @@ public class CandidateController implements MethodInterface {
                 break;
             }
         }
+        choiceMenu();
     }
 
     private static void editCandidates(Candidates candidates) {
@@ -435,9 +428,13 @@ public class CandidateController implements MethodInterface {
             System.err.println("Mời chọn đúng thuộc tính mà ứng viên sở hữu");
             editCandidates(candidates);
         }
+        choiceMenu();
     }
 
     static final String COMMA = ",";
+    public static final String EXP_FILE = "D:\\CodeGym\\1_main_excercise\\module_2\\src\\ss0_review\\File\\EXPRIENCE_FILE.csv";
+    static final String FRESHER_FILE = "D:\\CodeGym\\1_main_excercise\\module_2\\src\\ss0_review\\File\\FRESHER_FILE.csv";
+    static final String INTERSHIP_FILE = "D:\\CodeGym\\1_main_excercise\\module_2\\src\\ss0_review\\File\\INTERSHIP_FILE.csv";
 
     public static void writeToCSV() {
         final String FILEHEADER = "ID,NAME,BIRTHDAY,ADRESS,PHONE,EMAIL,TYPE, ";
@@ -449,9 +446,9 @@ public class CandidateController implements MethodInterface {
         FileWriter inter = null;
         FileWriter fresher = null;
         try {
-            exp = new FileWriter("D:\\CodeGym\\1_main_excercise\\module_2\\src\\ss0_review\\File\\EXPRIENCE_FILE.csv");
-            inter = new FileWriter("D:\\CodeGym\\1_main_excercise\\module_2\\src\\ss0_review\\File\\INTERSHIP_FILE.csv");
-            fresher = new FileWriter("D:\\CodeGym\\1_main_excercise\\module_2\\src\\ss0_review\\File\\FRESHER_FILE.csv");
+            exp = new FileWriter(EXP_FILE);
+            inter = new FileWriter(FRESHER_FILE);
+            fresher = new FileWriter(INTERSHIP_FILE);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -460,22 +457,23 @@ public class CandidateController implements MethodInterface {
             exp.write(EXPERIENCE_HEADER);
             for (Candidates i : candidatesList) {
                 if (i instanceof Experience) {
-                    exp.write(i.getId() + COMMA + i.getFirstName() + "" + i.getLastName() + COMMA + i.getBirth() + COMMA + i.getAddress() + COMMA + i.getPhone()
+                    exp.write(i.getId() + COMMA + i.getFirstName() + " " + i.getLastName() + COMMA + i.getBirth() + COMMA + i.getAddress() + COMMA + i.getPhone()
                             + COMMA + i.getEmail() + COMMA + ((Experience) i).getTYPE() + COMMA + ((Experience) i).getExpInYear() + COMMA + ((Experience) i).getProSkill() + "\n");
                 }
             }
 
+
             inter.write(INTERSHIP_HEADER);
             for (Candidates z : candidatesList) {
                 if (z instanceof Intership) {
-                    inter.write(z.getId() + COMMA + z.getFirstName() + "" + z.getLastName() + COMMA + z.getBirth() + COMMA + z.getAddress() + COMMA + z.getPhone()
+                    inter.write(z.getId() + COMMA + z.getFirstName() + " " + z.getLastName() + COMMA + z.getBirth() + COMMA + z.getAddress() + COMMA + z.getPhone()
                             + COMMA + z.getEmail() + COMMA + ((Intership) z).getTYPE() + COMMA + ((Intership) z).getMajors() + COMMA + ((Intership) z).getSemester() + COMMA + ((Intership) z).getUniName() + "\n");
                 }
             }
             fresher.write(FRESHER_HEADER);
             for (Candidates x : candidatesList) {
                 if (x instanceof Fresher) {
-                    fresher.write(x.getId() + COMMA + x.getFirstName() + "" + x.getLastName() + COMMA + x.getBirth() + COMMA + x.getAddress() + COMMA + x.getPhone()
+                    fresher.write(x.getId() + COMMA + x.getFirstName() + " " + x.getLastName() + COMMA + x.getBirth() + COMMA + x.getAddress() + COMMA + x.getPhone()
                             + COMMA + x.getEmail() + COMMA + (x).getType() + COMMA + ((Fresher) x).getGraduationDate() + COMMA + ((Fresher) x).getGraduationRank() + COMMA + ((Fresher) x).getEducation() + "\n");
                 }
             }
@@ -491,5 +489,6 @@ public class CandidateController implements MethodInterface {
                 e.printStackTrace();
             }
         }
+        choiceMenu();
     }
 }
