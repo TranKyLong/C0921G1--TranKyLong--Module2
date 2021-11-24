@@ -55,8 +55,36 @@ public class Function implements ServicesInterface, Serializable {
     }
 
     @Override
-    public void show() {
+    public void edit() {
+        show();
+        System.out.println("\n =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=");
+        System.out.println("Nhập mã của sản phẩm cần chỉnh sửa ");
+        int idEdit = Integer.parseInt(scanner.nextLine());
+        if (productMap.containsKey(idEdit)) {
+            productMap.remove(idEdit);
 
+            productMap.put(idEdit, new Product());
+            System.out.println("Nhập tên hãng mới");
+            productMap.get(idEdit).setManufacturer(scanner.nextLine());
+
+            System.out.println("Nhập tên sản phẩm mới");
+            productMap.get(idEdit).setName(scanner.nextLine());
+
+            System.out.println("Nhập giá mới");
+            productMap.get(idEdit).setPrice(Double.parseDouble(scanner.nextLine()));
+
+            System.out.println("Nhập ghi chú mới");
+            productMap.get(idEdit).setNote(scanner.nextLine());
+
+            FileWriter.writeFile(productMap);
+        } else {
+            System.out.println("Không tìm thấy");
+
+        }
+    }
+
+    @Override
+    public void show() {
         Map<Integer, Product> e = FileWriter.readFile(FileWriter.FILE_PRODUCT);
         for (Map.Entry<Integer, Product> entry : e.entrySet()) {
             System.out.println("Mã sản phẩm: " + entry.getKey() + entry.getValue());
@@ -69,6 +97,7 @@ public class Function implements ServicesInterface, Serializable {
         int idDelete = Integer.parseInt(scanner.nextLine());
         if (productMap.containsKey(idDelete)) {
             productMap.remove(idDelete);
+            //cap nhat file nhi phan
             FileWriter.writeFile(productMap);
         } else {
             System.out.println("Không tìm thấy");
@@ -77,6 +106,8 @@ public class Function implements ServicesInterface, Serializable {
 
     @Override
     public void find() {
+        productMap = FileWriter.readFile(FileWriter.FILE_PRODUCT);
+
         System.out.println("Mời nhập mã sản phẩm cần tìm kiếm ");
         int idFind = Integer.parseInt(scanner.nextLine());
 
