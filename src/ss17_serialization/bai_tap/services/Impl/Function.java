@@ -64,6 +64,18 @@ public class Function implements ServicesInterface, Serializable {
     }
 
     @Override
+    public void delete() {
+        System.out.println("Nhập mã sản phẩm cần xóa");
+        int idDelete = Integer.parseInt(scanner.nextLine());
+        if (productMap.containsKey(idDelete)) {
+            productMap.remove(idDelete);
+            FileWriter.writeFile(productMap);
+        } else {
+            System.out.println("Không tìm thấy");
+        }
+    }
+
+    @Override
     public void find() {
         System.out.println("Mời nhập mã sản phẩm cần tìm kiếm ");
         int idFind = Integer.parseInt(scanner.nextLine());
@@ -73,10 +85,5 @@ public class Function implements ServicesInterface, Serializable {
         } else {
             System.out.println("Không tìm thấy");
         }
-    }
-
-    public static void main(String[] args) {
-        Function myLab = new Function();
-        myLab.show();
     }
 }

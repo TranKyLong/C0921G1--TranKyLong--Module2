@@ -37,7 +37,7 @@ public class FileWriter {
         }
     }
 
-    public static   Map<Integer, Product> readFile(String path) {
+    public static Map<Integer, Product> readFile(String path) {
         Map<Integer, Product> myProduct = new HashMap<>();
         File file = new File(path);
         FileInputStream fileInputStream = null;

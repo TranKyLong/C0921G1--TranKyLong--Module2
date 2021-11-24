@@ -4,5 +4,6 @@ public interface ServicesInterface {
     void adding();
     void show();
     void find();
+void delete();
 
 }

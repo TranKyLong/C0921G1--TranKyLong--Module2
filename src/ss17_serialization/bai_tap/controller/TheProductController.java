@@ -11,7 +11,8 @@ public class TheProductController {
         System.out.println(" 1. Thêm sản phẩm");
         System.out.println(" 2. Hiển thị tất cả");
         System.out.println(" 3. Tìm sản phẩm");
-        System.out.println(" 4. Thót chuowg trình");
+        System.out.println(" 4. Xóa theo ID");
+        System.out.println(" 5. Thoát");
         Function myFunction = new Function();
         int choice = scanner.nextInt();
         switch (choice) {
@@ -28,6 +29,9 @@ public class TheProductController {
                 showMenu();
                 break;
             case 4:
+
+                break;
+            case 5:
                 System.exit(0);
                 break;
             default:
