@@ -1,6 +1,6 @@
 package case_study.Services.Person.CustommerServices;
 
-import case_study.Services.GeneralMethod;
+import case_study.Services.ReadWrite;
 import case_study.Services.Person.GerenalMethodPerson;
 import case_study.controller.FuramaController;
 import case_study.models.khach_hang_va_nhan_vien.Customer;
@@ -14,7 +14,8 @@ import java.util.Scanner;
 public class CustommerServicesImpl implements ICustommerServices {
     public static final String CUSTOMMER = "D:\\CodeGym\\1_main_excercise\\module_2\\src\\case_study\\data\\custommer.csv";
     static Scanner scanner = new Scanner((System.in));
-    static List<Customer> customerList = new LinkedList<>();
+    public static List<Customer> customerList = new LinkedList<>();
+    static FuramaController controller = new FuramaController();
 
     static {
         customerList.add(new Customer("Name1", "15/5/1995", "nam", "111111111", "09122222", "01@gmail.com", "150", "adress1", "Diamond"));
@@ -29,15 +30,14 @@ public class CustommerServicesImpl implements ICustommerServices {
             e.printStackTrace();
         }
         for (Customer i : customerList) {
-            GeneralMethod.writFile(i, CUSTOMMER);
+            ReadWrite.writFile(i, CUSTOMMER);
         }
     }
 
     @Override
     public void displayCustommer() {
-        for ( String i: GeneralMethod.readFileCsv(CUSTOMMER)
-             ) {
-            System.out.println(i.replace(",","\t \t"));
+        for (String i : ReadWrite.readFileCsv(CUSTOMMER)) {
+            System.out.println(i.replace(",", "\t \t"));
         }
 
 
@@ -79,7 +79,7 @@ public class CustommerServicesImpl implements ICustommerServices {
                             customerList.set(customerList.indexOf(theCustommer), getNewCustommer());
                             break;
                         case 2:
-                            FuramaController.displayMenu();
+                            controller.displayMenu();
                         default:
                             System.err.println("Please enter available number");
                             editOrAddNewCustommer(sign);

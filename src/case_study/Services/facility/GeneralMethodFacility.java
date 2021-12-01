@@ -9,7 +9,7 @@ public class GeneralMethodFacility {
 
     public static Facility getFacility(Facility facility) {
 
-        String name = FacilityValidate.validateInput("Enter services name", 0);
+        String name = FacilityValidate.validateInput("Enter services name", "name");
         facility.setTenDichVu(name);
 
         double area = FacilityValidate.validateArea("Enter usable area");

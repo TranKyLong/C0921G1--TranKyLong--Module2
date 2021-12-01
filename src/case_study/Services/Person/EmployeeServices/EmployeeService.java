@@ -1,6 +1,6 @@
 package case_study.Services.Person.EmployeeServices;
 
-import case_study.Services.GeneralMethod;
+import case_study.Services.ReadWrite;
 import case_study.Services.Person.GerenalMethodPerson;
 import case_study.controller.FuramaController;
 import case_study.models.khach_hang_va_nhan_vien.Employee;
@@ -16,6 +16,7 @@ public class EmployeeService implements IEmployeeService {
     static List<Employee> employeeList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
+    static FuramaController controller = new FuramaController();
     static {
         employeeList.add(new Employee("100", "Unamed1", "15/5/1990", "Nam", "1234567899", "123456789", "email@gmail.com", "Trung cấp", "Nhân Viên", 150.5));
         employeeList.add(new Employee("101", "Unamed2", "15/5/1992", "Nam", "1234567892", "123456782", "email@gmail2.com", "Cao đẳng", "Nhân Viên", 150.2));
@@ -29,16 +30,20 @@ public class EmployeeService implements IEmployeeService {
             e.printStackTrace();
         }
         for (Employee i : employeeList) {
-            GeneralMethod.writFile(i, EMPLOYEE);
+            ReadWrite.writFile(i, EMPLOYEE);
         }
     }
 
     @Override
     public void displayListEmployees() {
-        for (Employee i : employeeList) {
-            System.out.println(i.toString());
+        for (String i : ReadWrite.readFileCsv(EMPLOYEE)) {
+            System.out.println(i);
         }
-        GeneralMethod.readFileCsv(EMPLOYEE);
+    }
+
+    public static void main(String[] args) {
+        IEmployeeService a = new EmployeeService();
+        a.displayListEmployees();
     }
 
     @Override
@@ -87,7 +92,7 @@ public class EmployeeService implements IEmployeeService {
                             employeeList.set(employeeList.indexOf(theEmployee), getNewEmployee());
                             break;
                         case 2:
-                            FuramaController.displayMenu();
+                            controller.displayMenu();
                         default:
                             System.err.println("Please enter available number");
                             editOrAddNewEmployee(sign);

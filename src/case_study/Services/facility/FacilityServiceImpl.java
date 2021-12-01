@@ -1,6 +1,7 @@
 package case_study.Services.facility;
 
-import case_study.Services.GeneralMethod;
+import case_study.Services.ReadWrite;
+import case_study.controller.FuramaController;
 import case_study.models.co_so_vat_chat.Facility;
 import case_study.models.co_so_vat_chat.House;
 import case_study.models.co_so_vat_chat.Room;
@@ -8,17 +9,29 @@ import case_study.models.co_so_vat_chat.Villa;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class FacilityServiceImpl {
+    static FuramaController controller = new FuramaController();
     Scanner scanner = new Scanner(System.in);
-    static Map<Facility, Integer> facilityMap = new LinkedHashMap<>();
+    public static List<Facility> maintain = new ArrayList<>();
+    public static Map<Facility, Integer> facilityMap = new LinkedHashMap<>();
 
-    public List<?> readFile(String path) {
-        return null;
+
+    static {
+        facilityMap.put(new House("house1", 112.5, 150.6, 5, "Theo Ngày", "Ngàn Sao", 1, "SVHO-9234"), 1);
+        facilityMap.put(new House("house2", 112.5, 150.6, 5, "Theo Ngày", "Ngàn Sao", 1, "SVHO-1344"), 4);
+        facilityMap.put(new House("house3", 112.5, 250.5, 5, "Theo Ngày", "Ngàn Sao", 1, "SVHO-1394"), 1);
+        facilityMap.put(new Room("name01", 150.5, 110.6, 5, "Theo Ngày", "Cartoon_Network", "SVRO-1274"), 4);
+        facilityMap.put(new Room("room", 150.5, 110.6, 5, "Theo Ngày", "Cartoon_Network", "SVRO-1254"), 2);
+        facilityMap.put(new Villa("name001", 150.5, 17.6, 5, "Theo Ngày", "Không Sao", 30, 2, "SVVL-1284"), 4);
+        facilityMap.put(new Villa("myvilla", 150.5, 170.6, 5, "Theo Ngày", "Không Sao", 20.5, 2, "SVVL-1034"), 5);
+
+        for (Map.Entry<Facility, Integer> entry : facilityMap.entrySet()) {
+            if (entry.getValue() == 5) {
+                maintain.add(entry.getKey());
+            }
+        }
     }
 
     public static final String HOUSE_PATH = "D:\\CodeGym\\1_main_excercise\\module_2\\src\\case_study\\data\\house.csv";
@@ -36,95 +49,74 @@ public class FacilityServiceImpl {
 
         for (Map.Entry<Facility, Integer> entry : facilityMap.entrySet()) {
             if (entry.getKey() instanceof House) {
-                GeneralMethod.writFile(entry.getKey(), HOUSE_PATH);
+                ReadWrite.writFile(entry.getKey(), HOUSE_PATH);
             } else if (entry.getKey() instanceof Room) {
-
-                GeneralMethod.writFile(entry.getKey(), ROOM_PATH);
+                ReadWrite.writFile(entry.getKey(), ROOM_PATH);
             } else {
-                GeneralMethod.writFile(entry.getKey(), VILLA_PATH);
+                ReadWrite.writFile(entry.getKey(), VILLA_PATH);
             }
         }
     }
 
-    static {
-        facilityMap.put(new House("nae001", 12.5, 15.6, 5, "Theo Ngày", "Ngàn Sao", 1, "SVHO-9234"), 1);
-        facilityMap.put(new House("house2", 12.5, 15.6, 5, "Theo Ngày", "Ngàn Sao", 1, "SVHO-1344"), 1);
-        facilityMap.put(new House("house3", 12.5, 25.5, 5, "Theo Ngày", "Ngàn Sao", 1, "SVHO-1394"), 1);
-        facilityMap.put(new Room("name01", 12.5, 11.6, 5, "Theo Ngày", "Cartoon_Network", "SVRO-1274"), 2);
-        facilityMap.put(new Room("room", 12.5, 11.6, 5, "Theo Ngày", "Cartoon_Network", "SVRO-1254"), 2);
-        facilityMap.put(new Villa("name001", 12.5, 17.6, 5, "Theo Ngày", "Không Sao", 5, 2, "SVVL-1284"), 5);
-        facilityMap.put(new Villa("myvilla", 12.5, 17.6, 5, "Theo Ngày", "Không Sao", 20.5, 2, "SVVL-1034"), 5);
-    }
 
     public void getMaintenanceList() {
     }
 
     public static void displayFacility() {
         System.out.println("-=HOUSE SERVICES=-");
-        for (String i : GeneralMethod.readFileCsv(HOUSE_PATH)) {
+        for (String i : ReadWrite.readFileCsv(HOUSE_PATH)) {
             System.out.println(i.replace(",", "\t \t"));
         }
         System.out.println("\n-=ROOM SERVICES=-");
-        for (String i : GeneralMethod.readFileCsv(ROOM_PATH)) {
+        for (String i : ReadWrite.readFileCsv(ROOM_PATH)) {
             System.out.println(i.replace(",", "\t \t"));
         }
         System.out.println("\n-=VILLA SERVICES=-");
-        for (String i : GeneralMethod.readFileCsv(VILLA_PATH)) {
+        for (String i : ReadWrite.readFileCsv(VILLA_PATH)) {
             System.out.println(i.replace(",", "\t \t"));
         }
-
     }
 
-    public static void main(String[] args) {
-        writeToCsv();
+    public Facility getNewHouse() {
+        House myHouse = null;
+        myHouse = (House) GeneralMethodFacility.getFacility(myHouse);
+        FacilityValidate.validateInput("Enter house services code", "house");
+        System.out.println("Enter the house standard");
+        myHouse.setTieuChuanHouse(scanner.nextLine());
 
-        displayFacility();
+        String house_services_code = (FacilityValidate.validateInput("Enter house services code", "house"));
+        myHouse.setSerivesCode(house_services_code);
+        int floor = (int) (FacilityValidate.validateNumber("Enter number of floors", 1));
+        myHouse.setSoTangHouse(floor);
+        return myHouse;
     }
 
-    public Facility getNewFacility(int num) {
-        switch (num) {
-            case 1: //for new house
-                House myHouse = null;
-                myHouse = (House) GeneralMethodFacility.getFacility(myHouse);
-                System.out.println("Enter the house standard");
-                myHouse.setTieuChuanHouse(scanner.nextLine());
+    public Facility getNewRoom() {
+        Room myRoom = null;
+        myRoom = (Room) GeneralMethodFacility.getFacility(myRoom);
+        FacilityValidate.validateInput("Enter room services code", "room");
+        System.out.println("enter the included free service");
+        myRoom.setDichVuMienPhiDiKem(scanner.nextLine());
+        String room_serives_code = (FacilityValidate.validateInput("Enter room services code", "room"));
+        myRoom.setSerivesCode(room_serives_code);
+        return myRoom;
+    }
 
-                String house_services_code = (FacilityValidate.validateInput("Enter house services code", 1));
-                myHouse.setSerivesCode(house_services_code);
-                while (true) {
-                    try {
-                        System.out.println("enter the number of floors");
-                        myHouse.setSoTangHouse(Integer.parseInt(scanner.nextLine()));
-                        break;
-                    } catch (NumberFormatException e) {
-                        System.err.println("Please enter a number");
-                    }
-                }
-                return myHouse;
-            case 2:
-                Room myRoom = null;
-                myRoom = (Room) GeneralMethodFacility.getFacility(myRoom);
-                System.out.println("enter the included free service");
-                myRoom.setDichVuMienPhiDiKem(scanner.nextLine());
-                String room_serives_code = (FacilityValidate.validateInput("Enter room services code", 2));
-                myRoom.setSerivesCode(room_serives_code);
-                return myRoom;
-            case 3:
-                Villa myVilla = null;
-                myVilla = (Villa) GeneralMethodFacility.getFacility(myVilla);
-                String standar = FacilityValidate.validateInput("Enter the Villa standar", 0);
-                myVilla.setTieuChuanVilla(standar);
-                double area = FacilityValidate.validateArea("enter the pool area");
-                myVilla.setDienTichHoBoi(area);
+    public Facility getNewVilla() {
+        Villa myVilla = null;
+        myVilla = (Villa) GeneralMethodFacility.getFacility(myVilla);
+        FacilityValidate.validateInput("Enter villa services code", "villa");
+        String standar = FacilityValidate.validateInput("Enter the Villa standar", "name");
+        myVilla.setTieuChuanVilla(standar);
+        double area = FacilityValidate.validateArea("enter the pool area");
+        myVilla.setDienTichHoBoi(area);
 
-                int floors = (int) FacilityValidate.validateNumber("enter the number of floor", 1);
-                myVilla.setSoTang(floors);
+        int floors = (int) FacilityValidate.validateNumber("enter the number of floor", 1);
+        myVilla.setSoTang(floors);
 
-                String villa_serives_code = (FacilityValidate.validateInput("Enter villa services code", 3));
-                myVilla.setSerivesCode(villa_serives_code);
-                return myVilla;
-        }
-        return null;
+        String villa_serives_code = (FacilityValidate.validateInput("Enter villa services code", "villa"));
+        myVilla.setSerivesCode(villa_serives_code);
+        return myVilla;
     }
 
 

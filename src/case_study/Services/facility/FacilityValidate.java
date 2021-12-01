@@ -12,21 +12,21 @@ public class FacilityValidate {
      *       1 : House, 2: Room , 3: Villa
      */
 
-    public static String validateInput(String sign, int type) {
+    public static String validateInput(String sign, String type) {
         String input;
         boolean match;
         String format = null;
         switch (type) {
-            case 0:         //định dạng tên viết hoa
+            case "name":         //định dạng tên viết hoa
                 format = "^([A-Z]([a-z]+)\\t+)+$";
                 break;
-            case 1:
+            case "room":
                 format = "^(SV)(RO)[-](\\d){4}$";
                 break;
-            case 2:
+            case "house":
                 format = "^(SV)(HO)[-](\\d){4}$";
                 break;
-            case 3:
+            case "villa":
                 format = "^(SV)(VL)[-](\\d){4}$";
                 break;
         }
@@ -99,7 +99,6 @@ public class FacilityValidate {
                         + "4. By hour\n"
                 );
                 int choice = Integer.parseInt(scanner.nextLine());
-
                 switch (choice) {
                     case 1:
                         return "By Year";
@@ -158,4 +157,5 @@ public class FacilityValidate {
         }
         return 0;
     }
+
 }
