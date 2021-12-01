@@ -1,6 +1,6 @@
 package case_study.models.khach_hang_va_nhan_vien;
 
-public class Customer extends  Person{
+public class Customer extends PersonFurama {
     private String custommerCode;
     private String adress;
     String custommerType;
@@ -47,10 +47,6 @@ public class Customer extends  Person{
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "custommerCode='" + custommerCode + '\'' +
-                ", adress='" + adress + '\'' +
-                ", custommerType='" + custommerType + '\'' +
-                '}';
+        return super.toString() + this.custommerCode + "," + this.custommerType + "," + this.adress ;
     }
 }

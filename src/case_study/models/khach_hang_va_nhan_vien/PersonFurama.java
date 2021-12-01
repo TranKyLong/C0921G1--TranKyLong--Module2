@@ -1,6 +1,6 @@
 package case_study.models.khach_hang_va_nhan_vien;
 
-public abstract class Person {
+public abstract class PersonFurama {
     private String name;
     private String birthDay;
     private String gender;
@@ -8,10 +8,10 @@ public abstract class Person {
     private String phone;
     private String email;
 
-    public Person() {
+    public PersonFurama() {
     }
 
-    public Person(String name, String birthDay, String gender, String cmnd, String phone, String email) {
+    public PersonFurama(String name, String birthDay, String gender, String cmnd, String phone, String email) {
         this.name = name;
         this.birthDay = birthDay;
         this.gender = gender;
@@ -70,7 +70,8 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return (String.format("%14s %14s %5s %12s %12s %14s ", this.name, this.birthDay, this.gender, this.cmnd, this.phone, this.email + "\t"));
+        return this.name + "," + this.birthDay + "," + this.gender + "," + this.cmnd + "," + this.phone + "," + this.email ;
+
 
     }
 }

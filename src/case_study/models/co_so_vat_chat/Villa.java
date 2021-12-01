@@ -4,19 +4,17 @@ public class Villa extends Facility {
     String tieuChuanVilla;
     double dienTichHoBoi;
     int soTang;
+    String villaServicesCode;
+
 
     public Villa() {
     }
 
-    public Villa(String tieuChuanPhong, double dienTichHoBoi, int soTang) {
-        this.tieuChuanVilla = tieuChuanPhong;
-        this.dienTichHoBoi = dienTichHoBoi;
-        this.soTang = soTang;
-    }
+    public Villa(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoi,
+                 String kieuThue, String tieuChuanVilla, double dienTichHoBoi, int soTang, String servicesCode) {
 
-    public Villa(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoi, String kieuThue, String tieuChuanPhong, double dienTichHoBoi, int soTang) {
-        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoi, kieuThue);
-        this.tieuChuanVilla = tieuChuanPhong;
+        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoi, kieuThue, servicesCode);
+        this.tieuChuanVilla = tieuChuanVilla;
         this.dienTichHoBoi = dienTichHoBoi;
         this.soTang = soTang;
     }
@@ -45,12 +43,9 @@ public class Villa extends Facility {
         this.soTang = soTang;
     }
 
+
     @Override
     public String toString() {
-        return "Villa{" +
-                "tieuChuanPhong='" + tieuChuanVilla + '\'' +
-                ", dienTichHoBoi=" + dienTichHoBoi +
-                ", soTang=" + soTang +
-                super.toString();
+        return "Tiêu chuẩn: " + this.tieuChuanVilla + ","+ super.toString() + "," + "Hồ bơi: "+this.dienTichHoBoi+" m2" + "," + "Diện tích: "+this.getDienTichSuDung() ;
     }
 }

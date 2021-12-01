@@ -1,4 +1,4 @@
-package b17_binary_file.manage_student.model;
+package ss17_serialization.demo_manage_student.model;
 
 import ss17_serialization.demo_manage_student.model.ClassName;
 import ss17_serialization.demo_manage_student.model.Person;

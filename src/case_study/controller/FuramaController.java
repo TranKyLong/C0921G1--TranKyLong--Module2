@@ -122,6 +122,7 @@ public class FuramaController {
                     case 1:
                         break;
                     case 2:
+
                         break;
                     case 3:
                         break;
@@ -130,6 +131,37 @@ public class FuramaController {
                     default:
                         displayMenu();
                         break;
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.err.println("Exception: The entered character is not a number");
+            }
+        }
+    }
+
+    private static void addNewfacility() {
+        System.out.println("1 .\tAdd New Villa\n" +
+                "2 .\tAdd New House\n" +
+                "3 .\tAdd New Room\n" +
+                "4 .\tBack to menu");
+        System.out.println("Enter a number that matches the menu function");
+        int choice = Integer.parseInt(scanner.nextLine());
+
+        while (true) {
+            try {
+                switch (choice) {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    default:
+                        displayMenu();
+                        break;
+
                 }
                 break;
             } catch (NumberFormatException e) {

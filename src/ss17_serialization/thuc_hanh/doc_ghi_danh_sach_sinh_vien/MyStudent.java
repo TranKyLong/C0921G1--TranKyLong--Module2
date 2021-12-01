@@ -2,15 +2,15 @@ package ss17_serialization.thuc_hanh.doc_ghi_danh_sach_sinh_vien;
 
 import java.io.Serializable;
 
-public class TaoLopStudent implements Serializable {
+public class MyStudent implements Serializable {
     private int id;
     private String name;
     private String address;
 
-    public TaoLopStudent() {
+    public MyStudent() {
     }
 
-    public TaoLopStudent(int id, String name, String address) {
+    public MyStudent(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;

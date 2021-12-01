@@ -1,7 +1,7 @@
 package case_study.models.khach_hang_va_nhan_vien;
 
-public class Employee extends Person {
-    private int employeeCode;
+public class Employee extends PersonFurama {
+    private String employeeCode;
     private String level;
     private String position;
     private double salary;
@@ -9,14 +9,14 @@ public class Employee extends Person {
     public Employee() {
     }
 
-    public Employee(int maNhanVien, String trinhDo, String viTri, double luong) {
+    public Employee(String maNhanVien, String trinhDo, String viTri, double luong) {
         this.employeeCode = maNhanVien;
         this.level = trinhDo;
         this.position = viTri;
         this.salary = luong;
     }
 
-    public Employee(int maNhanVien, String name, String birthDay, String gender, String cmnd,
+    public Employee(String maNhanVien, String name, String birthDay, String gender, String cmnd,
                     String phone, String email, String trinhDo, String viTri, double luong) {
         super(name, birthDay, gender, cmnd, phone, email);
         this.employeeCode = maNhanVien;
@@ -25,11 +25,11 @@ public class Employee extends Person {
         this.salary = luong;
     }
 
-    public int getEmployeeCode() {
+    public String getEmployeeCode() {
         return employeeCode;
     }
 
-    public void setEmployeeCode(int employeeCode) {
+    public void setEmployeeCode(String employeeCode) {
         this.employeeCode = employeeCode;
     }
 
@@ -59,7 +59,6 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return super.toString()
-                + (String.format("%5s %15s %10s %10s", this.employeeCode, this.level, this.position, this.salary));
+        return super.toString() + this.employeeCode + "," + this.level + "," + this.position + "," + this.salary;
     }
 }

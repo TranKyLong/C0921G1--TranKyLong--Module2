@@ -3,6 +3,7 @@ package case_study.models.co_so_vat_chat;
 public class House extends Facility {
     String tieuChuanHouse;
     int soTangHouse;
+    String houseServicesCode;
 
     public House() {
     }
@@ -12,8 +13,8 @@ public class House extends Facility {
         this.soTangHouse = soTangHouse;
     }
 
-    public House(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoi, String kieuThue, String tieuChuanHouse, int soTangHouse) {
-        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoi, kieuThue);
+    public House(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoi, String kieuThue, String tieuChuanHouse, int soTangHouse, String servicesCode) {
+        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoi, kieuThue, servicesCode);
         this.tieuChuanHouse = tieuChuanHouse;
         this.soTangHouse = soTangHouse;
     }
@@ -36,8 +37,8 @@ public class House extends Facility {
 
     @Override
     public String toString() {
-        return "House{" +
-                "tieuChuanHouse='" + tieuChuanHouse + '\'' +
-                ", soTangHouse=" + soTangHouse + super.toString();
+        return "Tiêu chuẩn: "+this.tieuChuanHouse + "," + "Số tầng: "+this.soTangHouse + "," + super.toString();
     }
+
+
 }

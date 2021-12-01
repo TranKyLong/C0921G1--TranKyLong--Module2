@@ -10,7 +10,7 @@ public class MainDemo {
         Shape s2 = myFactory.getShape("tron");
         s2.draw();
 
-        Shape s3 = myFactory.getShape("");
+        Shape s3 = myFactory.getShape(" ");
         s3.draw();
 
     }
