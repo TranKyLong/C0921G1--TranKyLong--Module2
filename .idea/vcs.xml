@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apj-tennis-game" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/ss21_design_datterns/thuc_hanh/apj-taxi-object-pool-pattern" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/ss7_abstract_class_interface/bai_tap/resizeable/apj-shape" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/ss8_clean_code/bai_tap/apj-tennis-game" vcs="Git" />
   </component>

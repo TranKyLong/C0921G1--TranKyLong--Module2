@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="codegym-file-utils">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/ss22_structural_design_pattern/thuc_hanh/trien_khai_adapter/codegym-file-utils.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/src/ss22_structural_design_pattern/thuc_hanh/trien_khai_adapter/codegym-file-utils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/ss22_structural_design_pattern/thuc_hanh/trien_khai_adapter/codegym-file-utils.jar!/com/codegym" />
+    </SOURCES>
+  </library>
+</component>

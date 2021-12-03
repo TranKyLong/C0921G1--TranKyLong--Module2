@@ -40,7 +40,7 @@ public class BookingServiceImpl implements IBookingServices {
                     if ((entry.getKey().getSerivesCode()).equals(input)) {
                         facilityMap.put(entry.getKey(), entry.getValue() + 1);
                         count++;
-                        info.add(entry.getKey().getSerivesCode());
+                        info.add(input);
                         info.add(entry.getKey().getTenDichVu());
 
                         if (entry.getKey() instanceof Villa) {
@@ -68,7 +68,7 @@ public class BookingServiceImpl implements IBookingServices {
 
 
 @Override
-    public  void addBooking() {
+    public void addBooking() {
         System.out.println("-=SERVICES=-");
         IFacilityServices a = new FacilityServiceImpl();
         a.displayFacility();

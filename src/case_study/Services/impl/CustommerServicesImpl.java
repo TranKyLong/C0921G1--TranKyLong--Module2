@@ -72,7 +72,6 @@ public class CustommerServicesImpl implements IPersonServices {
                 try {
                     int choice = Integer.parseInt(scanner.nextLine());
                     if (choice == 1) {
-
                         customerList.set(customerList.indexOf(theCustommer), getNewCustommer(false));
                         writeToCsv();
                     }

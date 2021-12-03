@@ -80,7 +80,6 @@ public class EmployeeService implements IPersonServices {
         if (theEmployee != null && addNew) {
             System.out.println("This code already exist, do you want edit this Employee\n" +
                     "                          [ 1. YES / 2.NO ] ?");
-
             while (true) {
                 try {
                     int choice = Integer.parseInt(scanner.nextLine());
@@ -93,7 +92,6 @@ public class EmployeeService implements IPersonServices {
                     System.err.println("Please enter a number");
                 }
             }
-
         } else {
             if (!addNew) { //nếu employee code ko có sẵn thì tạo thêm rồi set lại employee code
                 System.out.println("This code not already exist, switch to adding mode");
@@ -105,7 +103,6 @@ public class EmployeeService implements IPersonServices {
             System.out.println("Sucess");
         }
     }
-
     public static String pickLevel() {
         while (true) {
             try {
