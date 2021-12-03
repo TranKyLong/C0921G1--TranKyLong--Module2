@@ -1,22 +1,22 @@
-package case_study.Services.booking_services;
+package case_study.Services.impl;
 
-import case_study.Services.ReadWrite;
-import case_study.Services.Person.CustommerServices.CustommerServicesImpl;
-import case_study.Services.Person.CustommerServices.ICustommerServices;
-import case_study.Services.facility.FacilityServiceImpl;
-import case_study.models.booking_contract.Booking;
-import case_study.models.co_so_vat_chat.Facility;
-import case_study.models.co_so_vat_chat.House;
-import case_study.models.co_so_vat_chat.Villa;
+import case_study.Services.IBookingServices;
+import case_study.Services.IFacilityServices;
+import case_study.Services.IPersonServices;
+import case_study.models.Booking;
+import case_study.models.Facility;
+import case_study.models.House;
+import case_study.models.Villa;
+import case_study.utils.ReadWrite;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
-import static case_study.Services.facility.FacilityServiceImpl.facilityMap;
+import static case_study.Services.impl.FacilityServiceImpl.facilityMap;
 
-public class BookingServiceImpl {
+public class BookingServiceImpl implements IBookingServices {
     public static final String BOOKING_FILE = "D:\\CodeGym\\1_main_excercise\\module_2\\src\\case_study\\data\\booking.csv";
     public static Set<Booking> bookingSet = new TreeSet<>();
     static Scanner scanner = new Scanner(System.in);
@@ -65,28 +65,32 @@ public class BookingServiceImpl {
         return info;
     }
 
-    public static void getNewBooking() {
+
+
+@Override
+    public  void addBooking() {
         System.out.println("-=SERVICES=-");
-        FacilityServiceImpl.displayFacility();
+        IFacilityServices a = new FacilityServiceImpl();
+        a.displayFacility();
 
         System.out.println("\n-=CUSTOMMER=-");
-        ICustommerServices custom = new CustommerServicesImpl();
-        custom.displayCustommer();
+        IPersonServices custom = new CustommerServicesImpl();
+        custom.display();
 
         Booking myBooking = new Booking();
         List<String> info = getServicesInfo("Enter existing services code");
 
-        myBooking.setCustommerCode(BookingValidate.isExistCustommerCode("Enter existing custommer code"));
+        myBooking.setCustommerCode(Validate.isExistCustommerCode("Enter existing custommer code"));
         myBooking.setSerivicesCode(info.get(0));
         myBooking.setServicesName(info.get(1));
         myBooking.setServicesType(info.get(2));
-        myBooking.setBookingTime(BookingValidate.validateDayTime("Enter your booking date (follow the format yyyy-mm-dd)"));
-        myBooking.setCheckOut(BookingValidate.validateDayTime("Enter your check out date (follow the format yyyy-mm-dd)"));
+        myBooking.setBookingTime(Validate.validateDayTime("Enter your booking date (follow the format yyyy-mm-dd)"));
+        myBooking.setCheckOut(Validate.validateDayTime("Enter your check out date (follow the format yyyy-mm-dd)"));
         bookingSet.add(myBooking);
         writeToCsv();
     }
 
-    public static void writeToCsv() {
+    private static void writeToCsv() {
         try {
             new FileWriter(BOOKING_FILE, false).close();
         } catch (IOException e) {
@@ -97,7 +101,8 @@ public class BookingServiceImpl {
         }
     }
 
-    public static void display() {
+@Override
+    public void displayBookingFile() {
         for (String i : ReadWrite.readFileCsv(BOOKING_FILE)) {
             System.out.println(i);
         }

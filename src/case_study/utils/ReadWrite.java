@@ -1,6 +1,6 @@
-package case_study.Services;
+package case_study.utils;
 
-import case_study.models.khach_hang_va_nhan_vien.PersonFurama;
+import case_study.models.PersonFurama;
 
 import java.io.*;
 import java.util.ArrayList;

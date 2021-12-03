@@ -1,4 +1,4 @@
-package case_study.models.co_so_vat_chat;
+package case_study.models;
 
 import java.util.Objects;
 

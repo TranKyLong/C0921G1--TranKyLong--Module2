@@ -1,4 +1,4 @@
-package case_study.models.booking_contract;
+package case_study.models;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -109,12 +109,12 @@ public class Booking implements Comparable<Booking> {
 
     @Override
     public String toString() {
-        return "Mã booking: " + this.bookingCode + ","
-                + "Mã khách hàng: " + this.custommerCode + ","
-                + "Mã dịch vụ: " + this.serivicesCode + ","
-                + "Tên dịch vụ: " + this.servicesName + ","
-                + "Loại dịch vụ: " + this.servicesType + ","
-                + "Ngày booking: " + this.bookingTime + ","
+        return "Mã booking: " + this.bookingCode + ", "
+                + "Mã khách hàng: " + this.custommerCode + ", "
+                + "Mã dịch vụ: " + this.serivicesCode + ", "
+                + "Tên dịch vụ: " + this.servicesName + ", "
+                + "Loại dịch vụ: " + this.servicesType + ", "
+                + "Ngày booking: " + this.bookingTime + ", "
                 + "Ngày trả phòng: " + this.checkOutTime;
     }
 

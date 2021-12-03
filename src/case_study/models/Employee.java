@@ -1,4 +1,4 @@
-package case_study.models.khach_hang_va_nhan_vien;
+package case_study.models;
 
 public class Employee extends PersonFurama {
     private String employeeCode;
